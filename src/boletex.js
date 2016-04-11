@@ -105,7 +105,6 @@ boletex = {
 
 		fator = String(parseInt(fator, 10));
 		zeros = "0000";
-		console.log(zeros.substr(0,4-fator.length) + fator);
 
 		return(zeros.substr(0,4-fator.length) + fator);
 	},
