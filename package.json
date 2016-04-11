@@ -1,0 +1,21 @@
+{
+  "name": "boletex",
+  "version": "1.0.0",
+  "description": "Biblioteca com diversas funções para boleto bancário",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rpaggi/boletex.git"
+  },
+  "keywords": [
+    "boleto",
+    "bancário",
+    "reboleto",
+    "reboleta"
+  ],
+  "author": "Ronaldo Paggi <rpaggi@gmail.com> (http://rpaggi.com.br)",
+  "license": "MIT"
+}
