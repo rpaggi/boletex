@@ -18,7 +18,7 @@ boletex = {
 				+barra.substr(10,10)
 				+barra.substr(21,10);
 
-		if (this.modulo11Banco(barra) != barra.substr(4,1))
+		if (this.modulo11(barra) != barra.substr(4,1))
 			return false;
 
 		return(barra);
@@ -37,7 +37,7 @@ boletex = {
 		var campo5 = linha.substr(5,14);	// Vencimento + Valor
 
 
-		if (this.modulo11Banco(linha) != campo4 )
+		if (this.modulo11(linha) != campo4 )
 			return false
 
 		if (campo5 == 0)
@@ -117,7 +117,7 @@ boletex = {
 
 		return digito;
 	},
-	modulo11Banco : function (numero)
+	modulo11 : function (numero)
 	{
 		numero = this.unformat(numero)
 		numero = numero.substr(0,4)+numero.substr(5,39)
@@ -159,7 +159,7 @@ boletex = {
 		var barra = this.changeFator(this.linhaToBarra(this.unformat(linha)), this.dataToFator(newData));
 
 		//Calcula o digito verificador do novo código de barras e altera na barra e retorna
-		return this.barraToLinha(this.changeDv(barra, this.modulo11Banco(barra)));
+		return this.barraToLinha(this.changeDv(barra, this.modulo11(barra)));
 	}
 };
 
