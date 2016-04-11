@@ -1,4 +1,4 @@
-var boletex = require('./index');
+var boletex = require('./src/boletex');
 
 linha_digitavel = "10491.60433 31000.908553 55319.998500 1 67570000126490";
 new_data_vencimento = "09/04/2016";
