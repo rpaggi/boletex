@@ -99,11 +99,15 @@ boletex = {
 		dataAtual = new Date();
 		dataAtual.setFullYear(data.substr(6,4),data.substr(3,2)-1, data.substr(0,2));
 		dataBase = new Date();
-		dataBase.setFullYear(1997,9, 7);
+		dataBase.setFullYear(1997,9, 6);
 
 		var fator = ((dataAtual.getTime() - dataBase.getTime()) / 24 / 60 / 60 / 1000);
 
-		return(parseInt(fator));
+		fator = String(parseInt(fator, 10));
+		zeros = "0000";
+		console.log(zeros.substr(0,4-fator.length) + fator);
+
+		return(zeros.substr(0,4-fator.length) + fator);
 	},
 	/*
 	 * Calcula verificador com modulo10

@@ -1,6 +1,6 @@
 {
   "name": "boletex",
-  "version": "1.0.1",
+  "version": "1.0.22",
   "description": "Biblioteca com diversas funções para boleto bancário",
   "main": "src/boletex.js",
   "scripts": {
