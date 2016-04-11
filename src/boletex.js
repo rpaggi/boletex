@@ -1,7 +1,13 @@
 boletex = {
+	/*
+	 * Faz a limpeza da linha digitável tirando todos os pontos e espaços
+	 */
 	unformat : function(linha) {
 		return linha.replace(/[^0-9]/g,'');
 	},
+	/*
+	 * Converte linha digitável para código de barras
+	 */	
 	linhaToBarra : function(linha)
 	{
 		barra  = this.unformat(linha)
@@ -23,6 +29,9 @@ boletex = {
 
 		return(barra);
 	},
+	/*
+	 * Converte código de barras em linha digitável
+	 */	
 	barraToLinha : function (barra)
 	{
 		linha = this.unformat(barra);
@@ -55,9 +64,12 @@ boletex = {
 		
 		return(linha);
 	},
+	/*
+	 * Converte fator de vencimento para data no formado DD/MM/AAAA
+	 * Fator contado a partir da data base 07/10/1997
+	 * Ex: 04/07/2000 fator igual a = 1001
+	 */	
 	fatorToData : function (dias) {
-		//Fator contado a partir da data base 07/10/1997
-		//*** Ex: 04/07/2000 fator igual a = 1001
 
 		var currentDate, t, dia, mes;
 
@@ -77,6 +89,11 @@ boletex = {
 
 		return(dia+'/'+mes+'/'+t.getFullYear());
 	},
+	/*
+	 * Converte data no formado DD/MM/AAAA para fator de vencimento
+	 * Fator contado a partir da data base 07/10/1997
+	 * Ex: 04/07/2000 fator igual a = 1001
+	 */	
 	dataToFator : function(data)
 	{
 		dataAtual = new Date();
@@ -88,6 +105,9 @@ boletex = {
 
 		return(parseInt(fator));
 	},
+	/*
+	 * Calcula verificador com modulo10
+	 */	
 	modulo10 : function (numero)
 	{
 		numero = this.unformat(numero);
@@ -117,6 +137,9 @@ boletex = {
 
 		return digito;
 	},
+	/*
+	 * Calcula verificador com modulo11
+	 */	
 	modulo11 : function (numero)
 	{
 		numero = this.unformat(numero)
@@ -145,10 +168,16 @@ boletex = {
 		if (digito == 0) digito = 1;
 		return digito;
 	},
+	/*
+	 * Troca fator de vencimento de um código de barras
+	 */	
 	changeFator: function(barra, newFator)
 	{
 		return barra.substr(0,5)+newFator+barra.substr(9,39);
 	},
+	/*
+	 * Troca digito verificador do fator de vencimento
+	 */	
 	changeDv : function(barra, dv)
 	{
 		return barra.substr(0,4)+dv+barra.substr(5,39)
